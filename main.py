@@ -18,7 +18,8 @@ async def on_message(message):
         await message.channel.send(msg)
 
     elif message.content.startswith('in!'):
-        auth = '- {0.author.name}'
+        auth = str(message.author.name)
+        print(auth)
         if auth not in in_list:
             if len(in_list) < 10:
                 in_list.append(auth)
@@ -31,11 +32,11 @@ async def on_message(message):
                     msg = 'Já temos 10! lista fechada.'.format(message)
                     await message.channel.send(msg)
             else:
-                msg = 'Sinto muito {0.author.name}, já tem 10, fica esperto ai caso alguem desista.'.format(message)
+                msg = f'Sinto muito {message.author.name}, já tem 10, fica esperto ai caso alguem desista.'.format(message)
                 await message.channel.send(msg)
     
     elif message.content.startswith('out!'):
-        auth = '- {0.author.name}'
+        auth = str(message.author.name)
         if auth in in_list:
             in_list.remove(auth)
             msg = 'Amongãs hoje: '
