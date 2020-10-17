@@ -1,9 +1,10 @@
 import discord
-
-TOKEN = 'NzY2ODEwOTUwMjI1MzYyOTQ0.X4oyWQ.diIzYBz3bk0Yb3mRsv7WxPtrZgY'
+import config
 
 client = discord.Client()
 in_list = []
+
+TOKEN = config.TOKEN
 
 @client.event
 async def on_message(message):
